@@ -811,7 +811,7 @@
       </div>
 
       <!-- 隊伍圖 -->
-      <div class="mb-6">
+      <div class="mb-6 img-skel">
         <img src="assets/插圖/丁未/丁未隊伍圖.png" alt="丁未上元春鬧隊伍" class="w-full object-cover">
       </div>
 
@@ -1759,7 +1759,7 @@
 
         <!-- 燈籠 0: 實體常民觸及 -->
         <div class="ol-lantern border border-stone-200/60 rounded-3xl p-6 bg-stone-100/40 text-center transition-all duration-700 group relative" id="ol-card-0">
-          <div style="width:88px;margin:0 auto 1rem;transform-origin:top center;animation:olSwing 5s ease-in-out infinite">
+          <div class="img-skel" style="width:88px;margin:0 auto 1rem;transform-origin:top center;animation:olSwing 5s ease-in-out infinite">
             <img src="assets/插圖/丁未/燈籠1.png" id="ol-lantern-img-0" class="w-full h-auto" alt="燈籠">
           </div>
           <p class="font-black text-stone-400 group-hover:text-[#C8102E] transition-colors duration-500" style="font-family:'Noto Serif TC';font-size:clamp(1.75rem,3.5vw,2.5rem);line-height:1" id="kpi-0">0</p>
@@ -1769,7 +1769,7 @@
 
         <!-- 燈籠 1: 核心工作人員 -->
         <div class="ol-lantern border border-stone-200/60 rounded-3xl p-6 bg-stone-100/40 text-center transition-all duration-700 group relative" id="ol-card-1">
-          <div style="width:88px;margin:0 auto 1rem;transform-origin:top center;animation:olSwing 5s ease-in-out infinite;animation-delay:-1.5s">
+          <div class="img-skel" style="width:88px;margin:0 auto 1rem;transform-origin:top center;animation:olSwing 5s ease-in-out infinite;animation-delay:-1.5s">
             <img src="assets/插圖/丁未/燈籠1.png" id="ol-lantern-img-1" class="w-full h-auto" alt="燈籠">
           </div>
           <p class="font-black text-stone-400 group-hover:text-[#C8102E] transition-colors duration-500" style="font-family:'Noto Serif TC';font-size:clamp(1.75rem,3.5vw,2.5rem);line-height:1" id="kpi-1">0</p>
@@ -1779,7 +1779,7 @@
 
         <!-- 燈籠 2: 長期藝術課程 -->
         <div class="ol-lantern border border-stone-200/60 rounded-3xl p-6 bg-stone-100/40 text-center transition-all duration-700 group relative" id="ol-card-2">
-          <div style="width:88px;margin:0 auto 1rem;transform-origin:top center;animation:olSwing 5s ease-in-out infinite;animation-delay:-3s">
+          <div class="img-skel" style="width:88px;margin:0 auto 1rem;transform-origin:top center;animation:olSwing 5s ease-in-out infinite;animation-delay:-3s">
             <img src="assets/插圖/丁未/燈籠1.png" id="ol-lantern-img-2" class="w-full h-auto" alt="燈籠">
           </div>
           <p class="font-black text-stone-400 group-hover:text-[#C8102E] transition-colors duration-500" style="font-family:'Noto Serif TC';font-size:clamp(1.75rem,3.5vw,2.5rem);line-height:1" id="kpi-2">0</p>
@@ -1789,7 +1789,7 @@
 
         <!-- 燈籠 3: 紀錄短片 -->
         <div class="ol-lantern border border-stone-200/60 rounded-3xl p-6 bg-stone-100/40 text-center transition-all duration-700 group relative" id="ol-card-3">
-          <div style="width:88px;margin:0 auto 1rem;transform-origin:top center;animation:olSwing 5s ease-in-out infinite;animation-delay:-4.5s">
+          <div class="img-skel" style="width:88px;margin:0 auto 1rem;transform-origin:top center;animation:olSwing 5s ease-in-out infinite;animation-delay:-4.5s">
             <img src="assets/插圖/丁未/燈籠1.png" id="ol-lantern-img-3" class="w-full h-auto" alt="燈籠">
           </div>
           <p class="font-black text-stone-400 group-hover:text-[#C8102E] transition-colors duration-500" style="font-family:'Noto Serif TC';font-size:clamp(1.75rem,3.5vw,2.5rem);line-height:1" id="kpi-3">0</p>
@@ -2028,6 +2028,8 @@ const METHOD_CONTENT = {
 function openMethodModal(key) {
   const d = METHOD_CONTENT[key];
   if (!d) return;
+  const _mw = document.getElementById('modal-img-wrap');
+  if (_mw) _mw.classList.remove('skel-loaded');
   document.getElementById('modal-img').src = d.src;
   document.getElementById('modal-img').alt = key;
   document.getElementById('modal-title').textContent = key;

@@ -298,11 +298,24 @@ function initHeroHide() {
   update();
 }
 
+// ── Skeleton shimmer ───────────────────────────────────────────────────────
+function initImgSkeleton() {
+  const SEL = '.team-slide-photo, .jc-flow-event, #modal-img-wrap, .img-skel';
+  document.querySelectorAll(SEL).forEach(wrap => {
+    const img = wrap.querySelector('img');
+    if (!img) return;
+    const done = () => wrap.classList.add('skel-loaded');
+    if (img.complete && img.naturalWidth > 0) done();
+    else { img.addEventListener('load', done); img.addEventListener('error', done); }
+  });
+}
+
 // ── Auto-init ──────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   initHeroNav();
   initHeroHide();
   initTOC();
   initScrollReveal();
+  initImgSkeleton();
 });
 

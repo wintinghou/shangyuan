@@ -612,3 +612,41 @@ details.ys-fold .fold-body{padding:.125rem 1.125rem 1rem;font-size:.875rem;line-
   .dw-hd [style*="4.5rem"] { display: none !important; }
   .dw-hd .section-title { font-size: 1.3rem; }
 }
+
+/* ── Skeleton shimmer ──────────────────────────────────────────────────────── */
+@keyframes skel-shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+.team-slide-photo,
+.jc-flow-event,
+#modal-img-wrap,
+.img-skel {
+  position: relative;
+  background: #e8e3da;
+}
+.team-slide-photo::after,
+.jc-flow-event::after,
+#modal-img-wrap::after,
+.img-skel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 30%, rgba(255,255,255,0.55) 50%, transparent 70%);
+  background-size: 200% 100%;
+  animation: skel-shimmer 1.4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+.team-slide-photo.skel-loaded::after,
+.jc-flow-event.skel-loaded::after,
+#modal-img-wrap.skel-loaded::after,
+.img-skel.skel-loaded::after { display: none; }
+.team-slide-photo img,
+.jc-flow-event img,
+#modal-img-wrap img,
+.img-skel img { opacity: 0; transition: opacity 0.35s ease; }
+.team-slide-photo.skel-loaded img,
+.jc-flow-event.skel-loaded img,
+#modal-img-wrap.skel-loaded img,
+.img-skel.skel-loaded img { opacity: 1; }
